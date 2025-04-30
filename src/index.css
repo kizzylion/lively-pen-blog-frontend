@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Text Colors */
+  .text-primary {
+    @apply text-gray-900 dark:text-gray-50;
+  }
+  .text-primary-on-brand {
+    @apply text-white dark:text-gray-50;
+  }
+  .text-secondary {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+  .text-secondary-on-hover {
+    @apply text-gray-800 dark:text-gray-200;
+  }
+  .text-secondary-on-brand {
+    @apply text-purple-200 dark:text-gray-300;
+  }
+  .text-tertiary {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+  .text-tertiary-on-hover {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+  .text-tertiary-on-brand {
+    @apply text-purple-200 dark:text-gray-400;
+  }
+  .text-quaternary {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+  .text-quaternary-on-brand {
+    @apply text-purple-300 dark:text-gray-400;
+  }
+  .text-white {
+    @apply text-white dark:text-white;
+  }
+  .text-disabled {
+    @apply text-gray-500 dark:text-gray-500;
+  }
+  .text-placeholder {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+  .text-placeholder-subtle {
+    @apply text-gray-300 dark:text-gray-700;
+  }
+  .text-brand-primary {
+    @apply text-purple-900 dark:text-gray-50;
+  }
+  .text-brand-secondary {
+    @apply text-purple-700 dark:text-gray-300;
+  }
+  .text-brand-secondary-hover {
+    @apply text-purple-800 dark:text-gray-300;
+  }
+  .text-brand-tertiary {
+    @apply text-purple-600 dark:text-gray-400;
+  }
+  .text-brand-tertiary-alt {
+    @apply text-purple-600 dark:text-gray-50;
+  }
+  .text-error-primary {
+    @apply text-red-600 dark:text-red-400;
+  }
+  .text-warning-primary {
+    @apply text-amber-600 dark:text-amber-400;
+  }
+  .text-success-primary {
+    @apply text-green-600 dark:text-green-400;
+  }
+
+  /* Background Colors */
+  .bg-primary {
+    @apply bg-white dark:bg-gray-950;
+  }
+  .bg-primary-alt {
+    @apply bg-white dark:bg-gray-900;
+  }
+  .bg-primary-hover {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+  .bg-primary-solid {
+    @apply bg-gray-950 dark:bg-gray-900;
+  }
+  .bg-secondary {
+    @apply bg-gray-50 dark:bg-gray-900;
+  }
+  .bg-secondary-alt {
+    @apply bg-gray-50 dark:bg-gray-950;
+  }
+  .bg-secondary-hover {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  .bg-secondary-subtle {
+    @apply bg-gray-50 dark:bg-gray-900;
+  }
+  .bg-secondary-solid {
+    @apply bg-gray-600 dark:bg-gray-600;
+  }
+  .bg-tertiary {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  .bg-quaternary {
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+  .bg-active {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+  .bg-disabled {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  .bg-disabled-subtle {
+    @apply bg-gray-50 dark:bg-gray-900;
+  }
+  .bg-overlay {
+    @apply bg-gray-950 dark:bg-gray-800;
+  }
+  .bg-brand-primary {
+    @apply bg-purple-50 dark:bg-purple-500;
+  }
+  .bg-brand-primary-alt {
+    @apply bg-purple-50 dark:bg-gray-800;
+  }
+  .bg-brand-secondary {
+    @apply bg-purple-100 dark:bg-purple-600;
+  }
+  .bg-brand-solid {
+    @apply bg-purple-600 dark:bg-purple-600;
+  }
+  .bg-brand-solid-hover {
+    @apply bg-purple-700 dark:bg-purple-500;
+  }
+  .bg-brand-section {
+    @apply bg-purple-800 dark:bg-gray-950;
+  }
+  .bg-brand-section-subtle {
+    @apply bg-purple-700 dark:bg-gray-950;
+  }
+  .bg-error-primary {
+    @apply bg-red-50 dark:bg-red-950;
+  }
+  .bg-error-secondary {
+    @apply bg-red-100 dark:bg-red-600;
+  }
+  .bg-error-solid {
+    @apply bg-red-600 dark:bg-red-600;
+  }
+  .bg-error-solid-hover {
+    @apply bg-red-700 dark:bg-red-500;
+  }
+  .bg-warning-primary {
+    @apply bg-amber-50 dark:bg-amber-950;
+  }
+  .bg-warning-secondary {
+    @apply bg-amber-100 dark:bg-amber-600;
+  }
+  .bg-warning-solid {
+    @apply bg-amber-600 dark:bg-amber-600;
+  }
+  .bg-success-primary {
+    @apply bg-green-50 dark:bg-green-950;
+  }
+  .bg-success-secondary {
+    @apply bg-green-100 dark:bg-green-600;
+  }
+  .bg-success-solid {
+    @apply bg-green-600 dark:bg-green-600;
+  }
+
+  /* Foreground Colors */
+  .fg-primary {
+    @apply bg-gray-900 dark:bg-white;
+  }
+  .fg-secondary {
+    @apply bg-gray-700 dark:bg-gray-300;
+  }
+  .fg-secondary-hover {
+    @apply bg-gray-800 dark:bg-gray-200;
+  }
+  .fg-tertiary {
+    @apply bg-gray-600 dark:bg-gray-400;
+  }
+  .fg-tertiary-hover {
+    @apply bg-gray-700 dark:bg-gray-300;
+  }
+  .fg-white {
+    @apply bg-white dark:bg-white;
+  }
+  .fg-disabled {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+  .fg-disabled-subtle {
+    @apply bg-gray-300 dark:bg-gray-600;
+  }
+  .fg-brand-primary {
+    @apply bg-purple-600 dark:bg-purple-500;
+  }
+  .fg-brand-primary-alt {
+    @apply bg-purple-600 dark:bg-gray-300;
+  }
+  .fg-brand-secondary {
+    @apply bg-purple-500 dark:bg-purple-500;
+  }
+  .fg-brand-secondary-alt {
+    @apply bg-purple-500 dark:bg-gray-600;
+  }
+  .fg-error-primary {
+    @apply bg-red-600 dark:bg-red-500;
+  }
+  .fg-error-secondary {
+    @apply bg-red-500 dark:bg-red-400;
+  }
+  .fg-warning-primary {
+    @apply bg-amber-600 dark:bg-amber-500;
+  }
+  .fg-warning-secondary {
+    @apply bg-amber-500 dark:bg-amber-400;
+  }
+  .fg-success-primary {
+    @apply bg-green-600 dark:bg-green-500;
+  }
+  .fg-success-secondary {
+    @apply bg-green-500 dark:bg-green-400;
+  }
+
+  /* Alpha Colors */
+  .alpha-white-10 {
+    @apply bg-white/10 dark:bg-gray-950/10;
+  }
+  .alpha-white-20 {
+    @apply bg-white/20 dark:bg-gray-950/20;
+  }
+  .alpha-white-30 {
+    @apply bg-white/30 dark:bg-gray-950/30;
+  }
+  .alpha-white-40 {
+    @apply bg-white/40 dark:bg-gray-950/40;
+  }
+  .alpha-white-50 {
+    @apply bg-white/50 dark:bg-gray-950/50;
+  }
+  .alpha-white-60 {
+    @apply bg-white/60 dark:bg-gray-950/60;
+  }
+  .alpha-white-70 {
+    @apply bg-white/70 dark:bg-gray-950/70;
+  }
+  .alpha-white-80 {
+    @apply bg-white/80 dark:bg-gray-950/80;
+  }
+  .alpha-white-90 {
+    @apply bg-white/90 dark:bg-gray-950/90;
+  }
+  .alpha-white-100 {
+    @apply bg-white dark:bg-gray-950;
+  }
+  .alpha-black-10 {
+    @apply bg-black/10 dark:bg-white/10;
+  }
+  .alpha-black-20 {
+    @apply bg-black/20 dark:bg-white/20;
+  }
+  .alpha-black-30 {
+    @apply bg-black/30 dark:bg-white/30;
+  }
+  .alpha-black-40 {
+    @apply bg-black/40 dark:bg-white/40;
+  }
+  .alpha-black-50 {
+    @apply bg-black/50 dark:bg-white/50;
+  }
+  .alpha-black-60 {
+    @apply bg-black/60 dark:bg-white/60;
+  }
+  .alpha-black-70 {
+    @apply bg-black/70 dark:bg-white/70;
+  }
+  .alpha-black-80 {
+    @apply bg-black/80 dark:bg-white/80;
+  }
+  .alpha-black-90 {
+    @apply bg-black/90 dark:bg-white/90;
+  }
+  .alpha-black-100 {
+    @apply bg-black dark:bg-white;
+  }
+}
