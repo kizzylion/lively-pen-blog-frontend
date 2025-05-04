@@ -14,8 +14,11 @@
   .text-secondary-on-hover {
     @apply text-gray-800 dark:text-gray-200;
   }
+  .hover\:text-secondary-on-hover:hover {
+    @apply text-gray-800 dark:text-gray-200;
+  }
   .text-secondary-on-brand {
-    @apply text-purple-200 dark:text-gray-300;
+    @apply text-indigo-200 dark:text-gray-300;
   }
   .text-tertiary {
     @apply text-gray-600 dark:text-gray-400;
@@ -23,14 +26,17 @@
   .text-tertiary-on-hover {
     @apply text-gray-700 dark:text-gray-300;
   }
+  .hover\:text-tertiary-on-hover:hover {
+    @apply text-gray-700 dark:text-gray-300;
+  }
   .text-tertiary-on-brand {
-    @apply text-purple-200 dark:text-gray-400;
+    @apply text-indigo-200 dark:text-gray-400;
   }
   .text-quaternary {
     @apply text-gray-500 dark:text-gray-400;
   }
   .text-quaternary-on-brand {
-    @apply text-purple-300 dark:text-gray-400;
+    @apply text-indigo-300 dark:text-gray-400;
   }
   .text-white {
     @apply text-white dark:text-white;
@@ -45,19 +51,22 @@
     @apply text-gray-300 dark:text-gray-700;
   }
   .text-brand-primary {
-    @apply text-purple-900 dark:text-gray-50;
+    @apply text-indigo-900 dark:text-gray-50;
   }
   .text-brand-secondary {
-    @apply text-purple-700 dark:text-gray-300;
+    @apply text-indigo-700 dark:text-gray-300;
   }
   .text-brand-secondary-hover {
-    @apply text-purple-800 dark:text-gray-300;
+    @apply text-indigo-800 dark:text-gray-300;
+  }
+  .hover\:text-brand-secondary-hover:hover {
+    @apply text-indigo-800 dark:text-gray-300;
   }
   .text-brand-tertiary {
-    @apply text-purple-600 dark:text-gray-400;
+    @apply text-indigo-600 dark:text-gray-400;
   }
   .text-brand-tertiary-alt {
-    @apply text-purple-600 dark:text-gray-50;
+    @apply text-indigo-600 dark:text-gray-50;
   }
   .text-error-primary {
     @apply text-red-600 dark:text-red-400;
@@ -79,6 +88,9 @@
   .bg-primary-hover {
     @apply bg-gray-50 dark:bg-gray-800;
   }
+  .hover\:bg-primary-hover:hover {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
   .bg-primary-solid {
     @apply bg-gray-950 dark:bg-gray-900;
   }
@@ -89,6 +101,9 @@
     @apply bg-gray-50 dark:bg-gray-950;
   }
   .bg-secondary-hover {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  .hover\:bg-secondary-hover:hover {
     @apply bg-gray-100 dark:bg-gray-800;
   }
   .bg-secondary-subtle {
@@ -116,25 +131,28 @@
     @apply bg-gray-950 dark:bg-gray-800;
   }
   .bg-brand-primary {
-    @apply bg-purple-50 dark:bg-purple-500;
+    @apply bg-indigo-50 dark:bg-indigo-500;
   }
   .bg-brand-primary-alt {
-    @apply bg-purple-50 dark:bg-gray-800;
+    @apply bg-indigo-50 dark:bg-gray-800;
   }
   .bg-brand-secondary {
-    @apply bg-purple-100 dark:bg-purple-600;
+    @apply bg-indigo-100 dark:bg-indigo-600;
   }
   .bg-brand-solid {
-    @apply bg-purple-600 dark:bg-purple-600;
+    @apply bg-indigo-600 dark:bg-indigo-600;
   }
   .bg-brand-solid-hover {
-    @apply bg-purple-700 dark:bg-purple-500;
+    @apply bg-indigo-700 dark:bg-indigo-500;
+  }
+  .hover\:bg-brand-solid-hover:hover {
+    @apply bg-indigo-700 dark:bg-indigo-500;
   }
   .bg-brand-section {
-    @apply bg-purple-800 dark:bg-gray-950;
+    @apply bg-indigo-800 dark:bg-gray-950;
   }
   .bg-brand-section-subtle {
-    @apply bg-purple-700 dark:bg-gray-950;
+    @apply bg-indigo-700 dark:bg-gray-950;
   }
   .bg-error-primary {
     @apply bg-red-50 dark:bg-red-950;
@@ -146,6 +164,9 @@
     @apply bg-red-600 dark:bg-red-600;
   }
   .bg-error-solid-hover {
+    @apply bg-red-700 dark:bg-red-500;
+  }
+  .hover\:bg-error-solid-hover:hover {
     @apply bg-red-700 dark:bg-red-500;
   }
   .bg-warning-primary {
@@ -167,6 +188,38 @@
     @apply bg-green-600 dark:bg-green-600;
   }
 
+  /* Boarder Colors */
+  .border-primary {
+    @apply border-gray-300 dark:border-gray-700;
+  }
+  .border-secondary {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+  .border-secondary-alt {
+    @apply border-black/10 dark:border-gray-800;
+  }
+  .border-tertiary {
+    @apply border-gray-100 dark:border-gray-800;
+  }
+  .border-disable {
+    @apply border-gray-300 dark:border-gray-700;
+  }
+  .border-disable-subtle {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+  .border-brand {
+    @apply border-indigo-500 dark:border-indigo-400;
+  }
+  .border-brand-alt {
+    @apply border-indigo-600 dark:border-indigo-700;
+  }
+  .border-error {
+    @apply border-red-500 dark:border-red-400;
+  }
+  .border-error-subtle {
+    @apply border-red-300 dark:border-red-500;
+  }
+
   /* Foreground Colors */
   .fg-primary {
     @apply bg-gray-900 dark:bg-white;
@@ -177,10 +230,16 @@
   .fg-secondary-hover {
     @apply bg-gray-800 dark:bg-gray-200;
   }
+  .hover\:fg-secondary-hover:hover {
+    @apply bg-gray-800 dark:bg-gray-200;
+  }
   .fg-tertiary {
     @apply bg-gray-600 dark:bg-gray-400;
   }
   .fg-tertiary-hover {
+    @apply bg-gray-700 dark:bg-gray-300;
+  }
+  .hover\:fg-tertiary-hover:hover {
     @apply bg-gray-700 dark:bg-gray-300;
   }
   .fg-white {
@@ -193,16 +252,16 @@
     @apply bg-gray-300 dark:bg-gray-600;
   }
   .fg-brand-primary {
-    @apply bg-purple-600 dark:bg-purple-500;
+    @apply bg-indigo-600 dark:bg-indigo-500;
   }
   .fg-brand-primary-alt {
-    @apply bg-purple-600 dark:bg-gray-300;
+    @apply bg-indigo-600 dark:bg-gray-300;
   }
   .fg-brand-secondary {
-    @apply bg-purple-500 dark:bg-purple-500;
+    @apply bg-indigo-500 dark:bg-indigo-500;
   }
   .fg-brand-secondary-alt {
-    @apply bg-purple-500 dark:bg-gray-600;
+    @apply bg-indigo-500 dark:bg-gray-600;
   }
   .fg-error-primary {
     @apply bg-red-600 dark:bg-red-500;
