@@ -3,17 +3,30 @@ import { Button } from "../ui/ButtonCVA";
 
 const Navbar = () => {
   return (
-    <nav className="bg-secondary sticky top-0">
+    <nav className="bg-primary sticky top-0 border-b border-secondary">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4 text-white">
         <div className="text-xl font-bold text-primary">
           <Link to="/">MyBlog </Link>
         </div>
         <div className="space-x-4">
           <Link to="/" className="hover:text-gray-300">
-            <Button intent={"linkGray"}>Home</Button>
+            <Button intent={"tertiary"}>Home</Button>
           </Link>
-          <Link to="/admin/login">
-            <Button size={"sm"}>Admin </Button>
+          <Link to="/" className="hover:text-gray-300">
+            <Button intent={"tertiary"}>Tag</Button>
+          </Link>
+          <Link to="/" className="hover:text-gray-300">
+            <Button intent={"tertiary"}>About</Button>
+          </Link>
+        </div>
+        <div className="space-x-4">
+          <Link to="/signup" className="hover:text-gray-300">
+            <Button intent={"secondary"} size={"sm"}>
+              Sign up
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button size={"sm"}>Login </Button>
           </Link>
         </div>
       </div>

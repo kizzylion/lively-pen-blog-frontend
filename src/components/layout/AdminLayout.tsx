@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import Footer from "./Footer";
+import Footer from "./AdminFooter";
 
 const AdminLayout = () => {
   return (
