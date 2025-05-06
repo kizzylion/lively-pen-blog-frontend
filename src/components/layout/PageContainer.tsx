@@ -6,7 +6,7 @@ const PageContainer = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 p-4 max-w-4xl mx-auto">
+      <main className="flex-1 p-4 w-full mx-auto">
         <Outlet />
       </main>
       <Footer />

@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const button = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-white dark:ring-offset-black transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       intent: {
@@ -32,7 +32,7 @@ const button = cva(
       {
         intent: "primary",
         disabled: false,
-        class: "hover:bg-brand-solid-hover border-1  border-solid shadow-xs ",
+        class: "hover:bg-brand-solid-hover border-1 border-solid shadow-xs",
       },
       {
         intent: "primary",
@@ -43,7 +43,7 @@ const button = cva(
       {
         intent: "secondary",
         disabled: false,
-        class: " hover:bg-primary-hover border-1 border-primary shadow-xs",
+        class: "hover:bg-primary-hover border-1 border-primary shadow-xs",
       },
       {
         intent: "secondary",
@@ -53,7 +53,7 @@ const button = cva(
       {
         intent: "tertiary",
         disabled: false,
-        class: " hover:bg-primary-hover",
+        class: "hover:bg-primary-hover",
       },
       {
         intent: "tertiary",
@@ -64,7 +64,7 @@ const button = cva(
         intent: "linkColor",
         disabled: false,
         class:
-          " hover:text-brand-secondary-hover hover:underline p-0 h-fit rounded-xs",
+          "hover:text-brand-secondary-hover hover:underline p-0 h-fit rounded-xs",
       },
       {
         intent: "linkColor",
@@ -74,15 +74,13 @@ const button = cva(
       {
         intent: "linkGray",
         disabled: false,
-        class:
-          " hover:text-tertiary-hover hover:underline p-0 h-fit rounded-xs",
+        class: "hover:text-tertiary-hover hover:underline p-0 h-fit rounded-xs",
       },
       {
         intent: "linkGray",
         disabled: true,
         class: "p-0 h-fit",
       },
-      // { intent: "primary", size: "md", class: "hover:bg-brand-solid-hover" },
     ],
     defaultVariants: {
       disabled: false,
@@ -97,6 +95,7 @@ export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "disabled">,
     VariantProps<typeof button> {
   loading?: boolean;
+  ref?: React.Ref<HTMLButtonElement>;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -106,9 +105,11 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   loading,
   children,
+  ref,
   ...props
 }) => (
   <button
+    ref={ref}
     className={twMerge(button({ intent, size, disabled, loading, className }))}
     disabled={disabled || loading}
     {...props}
@@ -140,6 +141,8 @@ export const Button: React.FC<ButtonProps> = ({
         />
       </svg>
     )}
-    <span className={loading ? "opacity-50" : ""}>{children}</span>
+    <span className={`flex items-center gap-2 ${loading ? "opacity-50" : ""}`}>
+      {children}
+    </span>
   </button>
 );
