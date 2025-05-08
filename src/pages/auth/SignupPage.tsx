@@ -12,7 +12,7 @@ import {
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { Link, useNavigate } from "react-router-dom";
-
+import { toast } from "../../components/ui/sonner";
 function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
@@ -27,6 +27,12 @@ function SignupPage() {
     e.preventDefault();
 
     setIsLoading(true);
+
+    if (!name || !email || !password) {
+      toast.error("Please fill in all fields");
+      setIsLoading(false);
+      return;
+    }
 
     console.log(import.meta.env.VITE_API_URL);
 
@@ -50,9 +56,11 @@ function SignupPage() {
       console.log(data);
 
       // on success, redirect to home page
+      toast.success("Account created successfully! You can now log in.");
       navigate("/login");
     } catch (error) {
       console.log("Signup error:", error);
+      toast.error("Failed to create account");
     } finally {
       setIsLoading(false);
     }
@@ -63,6 +71,7 @@ function SignupPage() {
       setIsGoogleLoading(true);
       // Google auth is handled by redirecting to the Google auth endpoint
       window.location.href = import.meta.env.VITE_API_URL + "/api/auth/google";
+      toast.success("Redirecting to Google...");
     } catch (error) {
       // toast.error("Google login failed");
       setIsGoogleLoading(false);
