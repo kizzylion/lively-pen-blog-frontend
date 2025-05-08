@@ -11,7 +11,7 @@ import {
 } from "../../components/ui/card";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,16 +19,61 @@ function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    //AUthentication will be implemented Late
-    console.log("Login attempt:", { email, password });
+
+    setIsLoading(true);
+
+    console.log(import.meta.env.VITE_API_URL);
+
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_API_URL + "/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, password }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to create user");
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+      // on success, redirect to home page
+      navigate("/login");
+    } catch (error) {
+      console.log("Signup error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    try {
+      setIsGoogleLoading(true);
+      // Google auth is handled by redirecting to the Google auth endpoint
+      window.location.href = import.meta.env.VITE_API_URL + "/api/auth/google";
+    } catch (error) {
+      // toast.error("Google login failed");
+      setIsGoogleLoading(false);
+      console.log(error);
+    }
   };
 
   return (
     <div className=" min-h-screen flex items-start justify-center px-4 py-8 text-left">
       <Card className="w-full max-w-md ">
-        <CardHeader className="space-y-1 text-center">
+        <CardHeader className="space-y-1 text-center px-0">
           <CardTitle className="text-2xl font-bold">
             Create an account
           </CardTitle>
@@ -37,7 +82,7 @@ function SignupPage() {
           </CardDescription>
         </CardHeader>
         <form action="">
-          <CardContent className="space-y-4 text-left">
+          <CardContent className="space-y-4 text-left px-0">
             <div className="space-y-3 ">
               <Label htmlFor="name" className="">
                 Name
@@ -99,8 +144,13 @@ function SignupPage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <Button className="w-full" type="submit">
-                Create Account
+              <Button
+                className="w-full"
+                type="submit"
+                disabled={isLoading}
+                onClick={handleSubmit}
+              >
+                {isLoading ? "Creating account..." : "Create Account"}
               </Button>
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
@@ -113,7 +163,11 @@ function SignupPage() {
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-4">
-                <Button intent={"secondary"}>
+                <Button
+                  intent={"secondary"}
+                  onClick={handleGoogleSignUp}
+                  disabled={isGoogleLoading}
+                >
                   <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                     <path
                       // fill="currentColor"
@@ -136,7 +190,7 @@ function SignupPage() {
                       d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                     />
                   </svg>
-                  Google
+                  {isGoogleLoading ? "Connecting..." : "Continue with Google"}
                 </Button>
               </div>
             </div>
@@ -144,9 +198,9 @@ function SignupPage() {
         </form>
         <CardFooter>
           <div className="text-sm text-tertiary mx-auto">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-brand-primary hover:underline">
-              Sign up
+            Already have an account?{" "}
+            <Link to="/login" className="text-brand-primary hover:underline">
+              Login
             </Link>
           </div>
         </CardFooter>

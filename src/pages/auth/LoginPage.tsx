@@ -27,7 +27,7 @@ function LoginPage() {
   return (
     <div className=" min-h-screen flex items-start justify-center px-4 py-8 text-left">
       <Card className="w-full max-w-md ">
-        <CardHeader className="space-y-1 text-center">
+        <CardHeader className="space-y-1 text-center px-0">
           <CardTitle className="text-2xl font-bold">
             Log in to your account
           </CardTitle>
@@ -36,7 +36,7 @@ function LoginPage() {
           </CardDescription>
         </CardHeader>
         <form action="">
-          <CardContent className="space-y-4 text-left">
+          <CardContent className="space-y-4 text-left px-0">
             <div className="space-y-3 ">
               <Label htmlFor="email" className="">
                 Email
